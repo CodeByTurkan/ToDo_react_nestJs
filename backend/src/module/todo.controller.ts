@@ -1,8 +1,16 @@
-import { Body, Controller, Get, Post } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Delete,
+  Get,
+  Param,
+  Post,
+  Put,
+} from '@nestjs/common';
 import { TodoService } from './todo.service';
 import { TodoDto } from './dto/todo.dto';
 
-@Controller()
+@Controller('todos')
 export class TodoController {
   constructor(private readonly todoService: TodoService) {}
   @Get()
@@ -10,8 +18,18 @@ export class TodoController {
     return this.todoService.getAllArray();
   }
 
-  @Post('submit')
-  submitForm(@Body() getData: TodoDto) {
-    return this.todoService.submitForm(getData);
+  @Post('add')
+  create(@Body() getData: TodoDto) {
+    return this.todoService.create(getData);
+  }
+
+  @Put(':id')
+  update(@Param('id') id: string, @Body('text') text: string) {
+    return this.todoService.update(Number(id), text);
+  }
+
+  @Delete(':id')
+  remove(@Param('id') id: string) {
+    return this.todoService.remove(Number(id));
   }
 }

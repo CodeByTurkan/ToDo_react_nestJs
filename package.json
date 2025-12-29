@@ -1,0 +1,30 @@
+{
+  "name": "todofullstack",
+  "version": "1.0.0",
+  "description": "fullstack-project",
+  "main": "index.js",
+  "workspaces": [
+    "frontend",
+    "backend"
+  ],
+  "scripts": {
+    "start:frontend": "npm --workspace frontend run dev",
+    "start:backend": "npm --workspace backend run start",
+    "start:all": "concurrently \"npm run start:backend\" \"npm run start:frontend\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CodeByTurkan/ToDo_react_nestJs.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/CodeByTurkan/ToDo_react_nestJs/issues"
+  },
+  "homepage": "https://github.com/CodeByTurkan/ToDo_react_nestJs#readme",
+  "devDependencies": {
+    "concurrently": "^9.2.1"
+  }
+}

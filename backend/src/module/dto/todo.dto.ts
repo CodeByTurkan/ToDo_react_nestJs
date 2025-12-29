@@ -1,4 +1,4 @@
 export class TodoDto {
-  name: string;
-  email: string;
+  // id: number; client should only send text , id will be created by the system
+  text: string;
 }
