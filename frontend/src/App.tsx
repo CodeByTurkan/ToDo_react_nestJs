@@ -23,9 +23,9 @@ export function ToDo() {
     );
   };
   return (
-    <div className="mx-auto w-full">
-      <h1 className="text-xl text-center my-5">Full Stack To Do App</h1>
-      <div>
+    <div className="flex flex-col items-center  min-h-screen">
+      <h1 className="text-xl my-5">Full Stack To Do App</h1>
+      <div className="w-80 ">
         <div className="flex justify-between">
           <Input
             type="text"
@@ -33,13 +33,16 @@ export function ToDo() {
             onChange={(e) => setInput(e.target.value)}
             value={input}
           />
-          <Button onClick={handleAdd} variant="outline" className="ml-3">
+          <Button onClick={handleAdd} variant="outline" className="ml-3 ">
             Add
           </Button>
         </div>
-        <ul className='mt-3'>
+        <ul className="mt-3">
           {todos.map((item) => (
-            <li key={item.id} className="flex justify-between items-center mt-3">
+            <li
+              key={item.id}
+              className="flex justify-between items-center mt-3"
+            >
               <div> {item.text}</div>
               <div>
                 <Button
