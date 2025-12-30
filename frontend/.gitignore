@@ -22,3 +22,12 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+dotenv
+.env
+
+# for notes
+notes.ts
+
+#to learn
+docs
