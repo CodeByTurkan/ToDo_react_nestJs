@@ -51,7 +51,7 @@ export function ToDo() {
     }
     finally {
       setLoading(false)
-    }
+    } 
 
     // Date.now() is a placeholder for “the database will handle this later”
     
@@ -69,23 +69,20 @@ export function ToDo() {
     } finally {
       setLoading(false);
     }
-    
   };
 
   const handleEdit = async (id: number) => {
    
     const newText = prompt("Edit todo: ");
     if (!newText || !newText.trim()) return;
-
-   
     try {
       
-        setLoading(true);
+      setLoading(true);
       setError(null);
       const updatedTodo = await updateTodo(id, newText );
        setTodos(
          todos.map((item) =>
-           item.id === id ? { ...item, updatedTodo} : item
+           item.id === id ?  updatedTodo : item
          )
        );
     } catch (error) {
