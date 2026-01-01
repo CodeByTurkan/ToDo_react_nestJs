@@ -48,12 +48,11 @@ export const updateTodo = async (id: number, text: string): Promise<Todo> => {
   return response.json();
 };
 
-export const deleteTodo = async (id: number): Promise<Todo> => {
+export const deleteTodo = async (id: number): Promise<void> => {
   const response = await fetch(`${API_URL}/${id}`, {
     method: "DELETE", //delete edende ise hecne gonermirik, ona gore body yoxdu.
   });
   if (!response.ok) {
     throw new Error("deleting from BE has problem");
   }
-  return response.json();
 };
