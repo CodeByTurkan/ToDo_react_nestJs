@@ -12,9 +12,10 @@ export type Todo = {
 // Backend → Frontend
 // → Frontend type ilə qəbul edir ✅
 
-const API_URL = import.meta.env.VITE_API_URL;
+// API URL - .env-dən götür, yoxdursa default istifadə et
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000/todos';
 
-export const getAllTodos = async (): Promise<Todo> => {
+export const getAllTodos = async (): Promise<Todo[]> => {
   const response = await fetch(API_URL);
   if (!response.ok) {
     throw new Error("failed to response");
